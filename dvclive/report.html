@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh" content="5">
+    <title>DVC Plot</title>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.18.2"></script>
+    
+    <style>
+        table {
+            border-spacing: 15px;
+        }
+    </style>
+</head>
+<body>
+    
+        <div id="metrics_json" style="text-align: center; padding: 10x">
+            <p>metrics_json</p>
+            <div style="display: flex;justify-content: center;">
+                <table>
+<thead>
+<tr><th style="text-align: right;">  train.metric</th><th style="text-align: right;">  test.metric</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: right;">      0.595191</td><td style="text-align: right;">    0.0565584</td></tr>
+</tbody>
+</table>
+            </div>
+        </div>
+
+    <div id = "static_test_metric">
+        <script type = "text/javascript">
+            var spec = {"$schema": "https://vega.github.io/schema/vega-lite/v5.json", "data": {"values": [{"step": "0", "metric": "0.17954070975273062", "rev": "workspace"}, {"step": "0", "metric": "0.8321358345784894", "rev": "workspace"}, {"step": "0", "metric": "0.4492950033248967", "rev": "workspace"}, {"step": "0", "metric": "0.8416556392013556", "rev": "workspace"}, {"step": "0", "metric": "0.6256390320026168", "rev": "workspace"}, {"step": "0", "metric": "0.9983823871205246", "rev": "workspace"}, {"step": "0", "metric": "0.7352499483522013", "rev": "workspace"}, {"step": "0", "metric": "0.6029280590164006", "rev": "workspace"}, {"step": "0", "metric": "0.540799536507139", "rev": "workspace"}, {"step": "0", "metric": "0.05655839780862293", "rev": "workspace"}]}, "title": "test/metric", "width": 300, "height": 300, "params": [{"name": "smooth", "value": 0.001, "bind": {"input": "range", "min": 0.001, "max": 1, "step": 0.001}}], "layer": [{"mark": "line", "encoding": {"x": {"field": "step", "type": "quantitative", "title": "step"}, "y": {"field": "metric", "type": "quantitative", "title": "metric", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}, "tooltip": [{"field": "step", "title": "step", "type": "quantitative"}, {"field": "metric", "title": "metric", "type": "quantitative"}]}, "transform": [{"loess": "metric", "on": "step", "groupby": ["rev", "filename", "field", "filename::field"], "bandwidth": {"signal": "smooth"}}]}, {"mark": {"type": "line", "opacity": 0.2}, "encoding": {"x": {"field": "step", "type": "quantitative", "title": "step"}, "y": {"field": "metric", "type": "quantitative", "title": "metric", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}, "tooltip": [{"field": "step", "title": "step", "type": "quantitative"}, {"field": "metric", "title": "metric", "type": "quantitative"}]}}, {"mark": {"type": "circle", "size": 10, "tooltip": {"content": "encoding"}}, "encoding": {"x": {"aggregate": "max", "field": "step", "type": "quantitative", "title": "step"}, "y": {"aggregate": {"argmax": "step"}, "field": "metric", "type": "quantitative", "title": "metric", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}}}]};
+            vegaEmbed('#static_test_metric', spec);
+        </script>
+    </div>
+    
+
+    <div id = "static_train_metric">
+        <script type = "text/javascript">
+            var spec = {"$schema": "https://vega.github.io/schema/vega-lite/v5.json", "data": {"values": [{"step": "0", "metric": "0.5099055868457906", "rev": "workspace"}, {"step": "0", "metric": "0.18134299680300503", "rev": "workspace"}, {"step": "0", "metric": "0.9642139624391955", "rev": "workspace"}, {"step": "0", "metric": "0.880650170579834", "rev": "workspace"}, {"step": "0", "metric": "0.11405109721905837", "rev": "workspace"}, {"step": "0", "metric": "0.08818414696994747", "rev": "workspace"}, {"step": "0", "metric": "0.17469574098547913", "rev": "workspace"}, {"step": "0", "metric": "0.5685634835275967", "rev": "workspace"}, {"step": "0", "metric": "0.7382684253189467", "rev": "workspace"}, {"step": "0", "metric": "0.5951910444862378", "rev": "workspace"}]}, "title": "train/metric", "width": 300, "height": 300, "params": [{"name": "smooth", "value": 0.001, "bind": {"input": "range", "min": 0.001, "max": 1, "step": 0.001}}], "layer": [{"mark": "line", "encoding": {"x": {"field": "step", "type": "quantitative", "title": "step"}, "y": {"field": "metric", "type": "quantitative", "title": "metric", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}, "tooltip": [{"field": "step", "title": "step", "type": "quantitative"}, {"field": "metric", "title": "metric", "type": "quantitative"}]}, "transform": [{"loess": "metric", "on": "step", "groupby": ["rev", "filename", "field", "filename::field"], "bandwidth": {"signal": "smooth"}}]}, {"mark": {"type": "line", "opacity": 0.2}, "encoding": {"x": {"field": "step", "type": "quantitative", "title": "step"}, "y": {"field": "metric", "type": "quantitative", "title": "metric", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}, "tooltip": [{"field": "step", "title": "step", "type": "quantitative"}, {"field": "metric", "title": "metric", "type": "quantitative"}]}}, {"mark": {"type": "circle", "size": 10, "tooltip": {"content": "encoding"}}, "encoding": {"x": {"aggregate": "max", "field": "step", "type": "quantitative", "title": "step"}, "y": {"aggregate": {"argmax": "step"}, "field": "metric", "type": "quantitative", "title": "metric", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}}}]};
+            vegaEmbed('#static_train_metric', spec);
+        </script>
+    </div>
+    
+</body>
+</html>
