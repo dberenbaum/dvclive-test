@@ -1,0 +1,13 @@
+stages:
+  live:
+    cmd: python live.py
+    deps:
+    - live.py
+    outs:
+    - dvclive
+metrics:
+- dvclive/metrics.json
+plots:
+- dvclive/plots/metrics:
+    x: step
+- dvclive/plots/images
