@@ -1,0 +1,15 @@
+schema: '2.0'
+stages:
+  live:
+    cmd: python live.py
+    deps:
+    - path: live.py
+      hash: md5
+      md5: 4ac03aafd3c0fdb1b93bb2cd413f1f78
+      size: 364
+    outs:
+    - path: dvclive
+      hash: md5
+      md5: 9a1f15f7a0efc467744f2f6b759b18ac.dir
+      size: 251880
+      nfiles: 4
